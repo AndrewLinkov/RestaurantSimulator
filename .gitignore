@@ -7,3 +7,4 @@ out
 *.yml
 .jar
 *.exe
+.ollamassist
