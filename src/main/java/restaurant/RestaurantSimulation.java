@@ -1,4 +1,4 @@
-package org.example;
+package restaurant;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;
