@@ -4,18 +4,18 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class CustomerGenerator implements Runnable  {
+
     private final BlockingQueue<Order> queue;
     private final String[] menu = {"Пицца", "Бургер", "Паста", "Суп", "Салат"};
+    private static final AtomicInteger orderIdGenerator = new AtomicInteger(1);
 
     public CustomerGenerator(BlockingQueue<Order> queue) {
         this.queue = queue;
     }
-
     @Override
     public void run() {
         try {
             while (!Thread.currentThread().isInterrupted()) {
-                AtomicInteger orderIdGenerator;
                 int id = orderIdGenerator.getAndIncrement();
                 String dish = menu[(int) (Math.random() * menu.length)];
                 Order order = new Order(id, dish);

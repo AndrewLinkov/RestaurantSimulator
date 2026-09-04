@@ -1,6 +1,6 @@
 package org.example;
+
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Cook implements Runnable {
     private final int id;
@@ -24,12 +24,9 @@ public class Cook implements Runnable {
                 Thread.sleep(2000 + (int)(Math.random() * 1000));
 
                 System.out.printf("  [Повар %d] Готов заказ №%d: %s! ✔\n", id, order.getId(), order.getName());
-                AtomicInteger totalServed;
-                totalServed.incrementAndGet(); // Атомарно увеличиваем счетчик
             }
         } catch (InterruptedException e) {
             // Нормальное завершение работы при остановке пула
         }
     }
-}
 }
